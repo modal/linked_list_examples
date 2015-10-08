@@ -49,6 +49,12 @@ struct dlist
 #define scan_list_safe(P, I, T)\
 	for (I = (P)->next, T = I->next; I != (P); I = T, T = I->next)
 
+#define scan_dlist_reverse(P, I)\
+	for (I = (P)->prev; I != (P); I = I->prev)
+
+#define scan_dlist_reverse_safe(P, I, T)\
+	for (I = (P)->prev, T = I->prev; I != (P); I = T, T = I->prev)
+
 #define dlist_empty(T) ((T)->next == T)
 
 #define scan_slist(P, I)\
@@ -74,6 +80,7 @@ static inline slist *slist_rem(slist *s)
 }
 
 #define DLIST_INIT(X) {.next = &X, .prev = &X}
+#define DLIST_HEAD(X) dlist X = DLIST_INIT(X)
 
 static inline void dlist_init(dlist *d)
 {
