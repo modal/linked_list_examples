@@ -19,7 +19,7 @@ int main(void)
         os_dlist_put(&myhead, &my[i].LP);
     }
 
-    while(dt = os_dlist_get(myhead.next))
+    while((dt = os_dlist_get(myhead.next)))
     {
         MY *tp = list_entry(MY, LP, dt);
         printf("%d ",  tp->val);
@@ -31,7 +31,7 @@ int main(void)
         os_dlist_put(&myhead, &my[i].LP);
     }
 
-    while(dt = os_dlist_get(myhead.prev))
+    while((dt = os_dlist_get(myhead.prev)))
     {
         MY *tp = list_entry(MY, LP, dt);
         printf("%d ",  tp->val);
