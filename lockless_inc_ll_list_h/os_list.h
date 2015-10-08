@@ -11,8 +11,8 @@ static inline dlist *os_dlist_get(dlist *d)
     //u32 context = os_start_critical_section();
     if(d == d->prev) return NULL;
     dlist_del(d);
-    return d;
     //os_end_critical_section(context);
+    return d;
 }
 
 static inline void os_dlist_put(dlist *d, dlist *a)
