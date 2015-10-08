@@ -15,7 +15,7 @@ static inline dlist *os_dlist_get(dlist *d)
     //os_end_critical_section(context);
 }
 
-static inline dlist os_dlist_put(dlist *d, dlist *a)
+static inline void os_dlist_put(dlist *d, dlist *a)
 {
     //u32 context = os_start_critical_section();
     dlist_add(d, a);
